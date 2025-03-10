@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offers - BookMyTrip</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome-free-6.7.2-web/css/all.min.css">
+    <style>
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="container-fluid">
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="Logo/BookMYTrip.png" alt="BookMYTrip Logo" width="150" height="150">
+                </a>
+            
+                <!-- Mobile Menu Toggle -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <!-- Navbar Links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link  text-dark  fw-bold" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-danger  fw-bold" href="offers.html">Offers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark  fw-bold" href="About.html">About</a>
+                        </li>
+                    </ul>
+                
+                    <!-- Login Dropdown -->
+                    <div class="d-flex flex-column flex-lg-row align-items-center ms-lg-2">
+                        <li class="nav-item dropdown list-unstyled">
+                            <button class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Login / Create Account
+                            </button>
+                            <ul class="dropdown-menu p-4">
+                                <form id="loginForm" method="POST">
+                                    <li>
+                                        <label class="text-dark" for="username">Username/E-mail:</label>
+                                        <input type="text" id="username" name="username" placeholder="Enter your email"
+                                            required class="form-control" autocomplete="username">
+                                    </li>
+                                    <li>
+                                        <label class="text-dark mt-2" for="password">Password:</label>
+                                        <input type="password" id="password" name="password" placeholder="Enter password"
+                                            required class="form-control">
+                                    </li>
+                                    <li>
+                                        <button type="submit" class="btn btn-outline-primary w-100 mt-3">Login</button>
+                                    </li>
+                                </form>
+                            </ul>
+                        </li>
+                    
+                        <!-- Country & Language Dropdown -->
+                        <li class="nav-item dropdown list-unstyled ms-lg-2 mt-2 mt-lg-0">
+                            <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Country / Language
+                            </button>
+                            <ul class="dropdown-menu p-2">
+                                <li>
+                                    <label class="text-dark" for="country">Select Country:</label>
+                                    <select class="form-select" id="country" name="country" autocomplete="country">
+                                        <option selected disabled>Choose a country</option>
+                                        <option value="US">United States</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="BR">Brazil</option>
+                                        <option value="JP">Japan</option>
+                                        <option value="CN">China</option>
+                                        <option value="IN">India</option>
+                                        <option value="RU">Russia</option>
+                                        <option value="FR">France</option>
+                                        <option value="DE">Germany</option>
+                                    </select>
+                                </li>
+                                <li class="mt-2">
+                                    <label class="text-dark" for="language">Select Language:</label>
+                                    <select class="form-select" id="language">
+                                        <option selected disabled>Choose a language</option>
+                                        <option value="1">English</option>
+                                        <option value="2">Tamil</option>
+                                        <option value="3">Hindi</option>
+                                        <option value="4">French</option>
+                                        <option value="5">German</option>
+                                        <option value="6">Chinese</option>
+                                        <option value="7">Japanese</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Offers Section -->
+    <section>
+        <h1 class="text-center"><b>Offers</b></h1>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <label for="filter-select">Filter by Category:</label>
+                    </div>
+                    <div class="card-body">
+                        <select class="form-select mb-3" id="filter-select">
+                            <option value="all">All</option>
+                            <option value="Flights">Flights</option>
+                            <option value="Hotels">Hotels</option>
+                            <option value="Holidays">Holidays</option>
+                        </select>
+                        <button class="btn btn-secondary" id="clear-filter">Clear Filter</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="offers-grid" class="card-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <aside class="pt-4">
+        <h6 class="fw-bold">BOOKMYTRIP</h6>
+        <p class="text-muted small">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem laudantium ab voluptatem, laborum distinctio iste reiciendis minima, nisi modi eaque mollitia? Quae ut numquam nesciunt, labore fuga eius iste esse!
+        </p>
+    
+        <h6 class="fw-bold mt-3">About the Site</h6>
+        <p class="small">
+            <a href="#">Customer Support</a>, 
+            <a href="#">MMT Black Loyalty Program</a>, 
+            <a href="#">Payment Security</a>, 
+            <a href="#">Privacy Policy</a>, 
+            <a href="#">Cookie Policy</a>, 
+            <a href="#">User Agreement</a>, 
+            <a href="#">Terms of Service</a>, 
+            <a href="#">Franchise Offices</a>, 
+            <a href="#">Make A Payment</a>, 
+            <a href="#">Work From Home</a>, 
+            <a href="#">Escalation Channel</a>
+        </p>
+    
+        <h6 class="fw-bold mt-3">QUICK LINKS</h6>
+        <p class="small">
+            <a href="#">Flights Discount Coupons</a>, 
+            <a href="#">Domestic Airlines</a>, 
+            <a href="#">Airlines</a>, 
+            <a href="#">Air Asia</a>, 
+            <a href="#">SpiceJet</a>, 
+            <a href="#">GoAir</a>, 
+            <a href="#">Air India</a>, 
+            <a href="#">Air India Express</a>, 
+            <a href="#">Vistara</a>, 
+            <a href="#">Delhi Mumbai Flights</a>, 
+            <a href="#">Pune Delhi Flights</a>, 
+            <a href="#">Chennai Flights</a>, 
+            <a href="#">Delhi Guwahati Flights</a>, 
+            <a href="#">Mumbai Varanasi Flights</a>, 
+            <a href="#">Guwahati Delhi Flights</a>, 
+            <a href="#">Goa Delhi Flights</a>, 
+            <a href="#">Delhi Goa Flights</a>, 
+            <a href="#">Delhi Chennai Flights</a>
+        </p>
+    </aside>
+
+    <!-- Footer -->
+    <footer class="bg-dark">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid d-flex flex-column text-center text-md-start flex-md-row justify-content-between align-items-center">
+                <div class="navbar-brand m-3 mb-md-0">
+                    <i class="fa-brands fa-instagram fa-2x text-white me-3"></i>
+                    <i class="fa-brands fa-x-twitter fa-2x text-white me-3"></i>
+                    <i class="fa-brands fa-linkedin-in fa-2x text-white me-3"></i>
+                    <i class="fa-brands fa-facebook-f fa-2x text-white"></i>
+                </div>
+                <div class="d-flex flex-column align-items-center">
+                    <p class="text-white">&copy; BOOKMYTRIP PVT.LTD</p>
+                    <p class="text-white">Country: INDIA | USA | UAE</p>
+                </div>
+            </div>            
+        </nav>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/bootstrap.bundle.min.js" defer></script>
+    <script src="fontawesome-free-6.7.2-web/js/all.min.js" defer></script>
+    <script src="offers.js" defer></script>
+</body>
+</html>

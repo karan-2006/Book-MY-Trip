@@ -1,0 +1,678 @@
+
+ /* General Styles */
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+a {
+    text-decoration-line: none !important;
+}
+
+article .nav-item .nav-link {
+    color: white;
+}
+
+
+
+    /* Enable horizontal scrolling on small screens */
+    .nav-tabs-wrapper {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Ensure the nav tabs take full width */
+    .nav-tabs {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    /* Ensure nav items are evenly spaced */
+    .nav-item {
+        flex: 1;
+        text-align: center;
+    }
+
+    /* Hide scrollbar in WebKit browsers (optional) */
+    .nav-tabs-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+.tab-content h3, label {
+    color: white;
+}
+
+.tab-content input{
+    color: lightslategray;
+}
+
+/* Ensure images are responsive and maintain aspect ratio */
+    .carousel-inner img {
+        height: 400px; /* Adjust as needed */
+        object-fit: cover;
+    }
+
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, -20%);
+    text-align: center;
+    color: white !important;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+
+}
+
+.carousel-caption h5,
+.carousel-caption p {
+    margin: 0;
+}
+
+.card-link {
+    text-decoration: none;
+}
+
+
+
+.card-img-overlay:hover {
+    transform: scale(1.1);
+}
+
+.card-img-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.overlay-content {
+    font-size: small;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+    /* Adjust font sizes for smaller screens */
+    @media (max-width: 768px) {
+        .carousel-caption h4 {
+            font-size: 16px;
+        }
+
+        .carousel-caption p {
+            font-size: 12px;
+        }
+
+        .carousel-caption {
+            bottom: 5%; /* Adjusts position for smaller screens */
+            font-size: 14px; /* Reduces text size */
+            max-height: 25vh; /* Further limits height on smaller screens */
+        }
+    }
+
+    @media (max-width: 576px) {  /* Targets 'sm' and smaller devices */
+        .carousel-caption {
+            bottom: 3%; /* Moves the caption slightly higher */
+            max-height: 25vh; /* Further reduces caption height */
+            padding: 5px 10px; /* Reduces padding for a cleaner look */
+        }
+    
+        .carousel-caption h4 {
+            font-size: 14px; /* Reduces heading size */
+        }
+    
+        .carousel-caption p {
+            font-size: 11px; /* Adjusts paragraph text size */
+        }
+    
+        .carousel-caption button {
+            padding: 4px 8px; /* Adjusts button size */
+            font-size: 12px; /* Ensures the button text remains readable */
+        }
+    }
+    
+
+
+
+
+.container-with-background {
+    background-image: url('Main/mountain.jpeg'); /* Path to your image */
+    background-size: cover; /* Make sure the image covers the entire container */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Don't repeat the image */
+    min-height: 100vh; /* Ensures the background image spans the full viewport height */
+}
+
+article .form {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 2px;
+}
+
+.grid-container {
+    display: grid;
+    width: 100vw !important;
+    grid-template-columns: repeat(5, 1fr); /* Creates 5 equal columns */
+    grid-template-rows: repeat(1, 100px);  /* Creates 2 rows of 100px height */
+    gap: 10px;  /* Adds space between grid items */
+    
+}
+ /* Ensure the grid items have consistent height */
+ .grid-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px; /* or adjust as needed */
+    width: 500px;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px); /* Subtle hover effect */
+}
+
+.grid-item i {
+    color: #007bff; /* Icon color */
+}
+
+.grid-item h5 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.grid-item p {
+    font-size: 0.9rem;
+    color: #6c757d;
+    line-height: 1.4;
+}
+
+/* Adjust column width at different breakpoints */
+@media (max-width: 991px) {
+    .col-md-6 {
+        /* Two items per row on medium screens */
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-12 {
+        /* One item per row on small screens */
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+#sponsorCarousel .carousel-item img {
+    max-height: 100px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.carousel-inner {
+    padding: 20px 0;
+}
+
+.sponsor-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.app {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+  }
+  
+  .app td {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+    align-items: center; /* Center cards horizontally */
+  }
+  
+  .app .app-store-card {
+    width: 280px; /* Base width for cards */
+    margin: 10px; /* Spacing between cards */
+    border: 1px solid #ddd; /* Optional border */
+    border-radius: 8px; /* Optional rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    transition: transform 0.2s ease-in-out; /* Optional hover effect */
+  }
+  
+  .app .app-store-card:hover {
+    transform: translateY(-5px); /* Optional hover effect */
+  }
+  
+  .app .card-title {
+    font-size: 1.2rem; /* Adjust title font size */
+    margin-bottom: 0; /* Remove default bottom margin */
+  }
+  
+  .app .fa-brands {
+    color: #007bff; /* Example icon color, adjust as needed */
+  }
+
+  input {
+    background-color: transparent !important;
+  }
+
+  .blog-post-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    float: right;
+}
+
+.blog-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    float: left;
+}
+
+@media (max-width: 768px) {
+    .blog-post-container {
+        float: right;
+    }
+
+    .blog-image {
+        width: 100%;
+        float: left;
+    }
+}
+
+
+  
+  /* Responsive adjustments */
+  
+  /* Tablet (e.g., 768px - 991px) */
+  @media (max-width: 991px) {
+    .app .app-store-card {
+      width: 250px; /* Slightly smaller on tablets */
+    }
+  }
+  
+  /* Mobile (e.g., less than 768px) */
+  @media (max-width: 767px) {
+    .app .app-store-card {
+      width: 90%; /* Take up more width on mobile */
+      max-width: 300px; /* Limit maximum width */
+      margin: 10px 0; /* Adjust margins */
+    }
+  
+    .app td {
+      flex-direction: column; /* Ensure vertical stacking */
+      align-items: center;
+    }
+  }
+  
+  /* Very small mobiles */
+  @media (max-width: 480px){
+      .app .card-title{
+          font-size: 1rem;
+      }
+      .app .fa-brands{
+          font-size: 1.5rem;
+      }
+  }
+
+  #app .card{
+    height: 100px;
+  }
+
+  #app1 .card{
+    height: 100px;
+  }
+
+  #over .card{
+    height: 200px;
+  }
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card-img-top {
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+aside {
+    background-color: lightgray;
+    padding: 20px;
+    word-break: break-word;
+}
+
+aside p a {
+    color: black;
+    text-decoration: none;
+}
+
+footer {
+    word-break: break-word;
+    padding: 20px 0;
+}
+
+.app {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+}
+
+.app td {
+  display: flex;
+  flex-direction: column; /* Stack cards vertically on smaller screens */
+  align-items: center; /* Center cards horizontally */
+}
+
+.app .app-store-card {
+  width: 280px; /* Base width for cards */
+  margin: 10px; /* Spacing between cards */
+  border: 1px solid #ddd; /* Optional border */
+  border-radius: 8px; /* Optional rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  transition: transform 0.2s ease-in-out; /* Optional hover effect */
+}
+
+.app .app-store-card:hover {
+  transform: translateY(-5px); /* Optional hover effect */
+}
+
+.app .card-title {
+  font-size: 1.2rem; /* Adjust title font size */
+  margin-bottom: 0; /* Remove default bottom margin */
+}
+
+.app .fa-brands {
+  color: #007bff; /* Example icon color, adjust as needed */
+}
+
+/* Responsive adjustments */
+
+/* Tablet (e.g., 768px - 991px) */
+@media (max-width: 991px) {
+  .app .app-store-card {
+    width: 250px; /* Slightly smaller on tablets */
+  }
+}
+
+/* Mobile (e.g., less than 768px) */
+@media (max-width: 767px) {
+  .app .app-store-card {
+    width: 90%; /* Take up more width on mobile */
+    max-width: 300px; /* Limit maximum width */
+    margin: 10px 0; /* Adjust margins */
+  }
+
+  .app td {
+    flex-direction: column; /* Ensure vertical stacking */
+    align-items: center;
+  }
+}
+
+/* Very small mobiles */
+@media (max-width: 480px){
+    .app .card-title{
+        font-size: 1rem;
+    }
+    .app .fa-brands{
+        font-size: 1.5rem;
+    }
+}
+footer .container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .social-icons a {
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+footer .footer-text p {
+    margin-bottom: 5px;
+}
+
+/* Responsive Styles */
+
+/* Tablets (Medium Screens) */
+@media (max-width: 1023px) {
+    .card {
+        width: calc(50% - 20px);
+    }
+
+    .card-container {
+        gap: 10px;
+    }
+
+    aside p a {
+        display: block;
+    }
+
+    footer .container-fluid {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    footer .social-icons {
+        margin-bottom: 15px;
+    }
+}
+
+/* Low-End Mobiles (Small Screens) */
+@media (max-width: 767px) {
+    .card {
+        width: 100%;
+        height: auto;
+    }
+
+    .card-img-top {
+        height: auto;
+    }
+
+    .card-container {
+        gap: 10px;
+    }
+
+    .navbar-brand img {
+        max-height: 100px;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    footer .social-icons i {
+        font-size: 2.5em;
+    }
+
+    footer .footer-text p {
+        font-size: 0.9em;
+    }
+}
+
+/* Very Small Screens */
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+    }
+
+    .navbar-brand img {
+        max-height: 80px;
+    }
+
+    .dropdown-menu {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    #loginForm {
+        padding: 5px;
+    }
+
+    aside, footer {
+        padding: 10px;
+    }
+
+    footer .social-icons i {
+        font-size: 2em;
+    }
+
+    footer .footer-text p {
+        font-size: 0.8em;
+    }
+
+    #loginForm input {
+        width: 100%;
+    }
+}
+
+
+#loginForm input,
+#loginForm select,
+#loginForm button {
+    width: 100%;
+}
+
+.card-img-top {
+    height: 150px;
+    object-fit: cover;
+}
+@media (max-width: 767px) {
+    .card-img-top {
+        height: 120px; /* Reduced height for smaller screens */
+    }
+}
+
+.dropdown-menu {
+    width: 90%;
+    margin-left: 5%;
+    padding: 5px;
+}
+
+
+footer .social-icons {
+    margin-bottom: 10px;
+}
+
+footer .social-icons i {
+    font-size: 2.5em;
+}
+@media (max-width: 767px) {
+    footer .social-icons i {
+        font-size: 2em;
+    }
+}
+
+footer {
+    word-wrap: break-word; /* Alternatively, use word-wrap to improve readability */
+}
+
+.card {
+    width: 100%;
+}
+
+
+.blog-section {
+    margin-bottom: 50px;
+}
+.blog-post {
+    margin-bottom: 30px;
+}
+.blog-post img {
+    max-width: 100%;
+    height: auto;
+}
+.blog-post .post-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.blog-post .post-excerpt {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+.blog-post .post-date {
+    color: gray;
+    font-size: 0.9rem;
+}
+
+/* Small screens and below (sm and lower) */
+@media (max-width: 767px) {
+    .grid-item {
+        border-left: 1px solid #6c757d !important;  
+        border-right: 1px solid #6c757d !important;
+    }
+}
+
+/* Medium screens (md) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .grid-item {
+        border-left: none !important;
+        border-right: none !important;
+    }
+    .grid-item:nth-child(2),
+    .grid-item:nth-child(3),
+    .grid-item:nth-child(5) {
+        border-left: 1px solid #6c757d !important;
+    }
+}
+
+/* Large screens (lg) */
+@media (min-width: 992px) {
+    .grid-item {
+        border-left: none !important;
+        border-right: none !important;
+    }
+    .grid-item:nth-child(2),
+    .grid-item:nth-child(3),
+    .grid-item:nth-child(4),
+    .grid-item:nth-child(5) {
+        border-left: 1px solid #6c757d !important;
+    }
+}
+
+.sponsor-img {
+    max-width: 100%;
+    height: auto;
+    width: 150px; /* Adjust as needed */
+}
+

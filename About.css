@@ -1,0 +1,212 @@
+/* About.css */
+
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+body p {
+    font-size: 1.1rem; /* Adjust globally if you want */
+}
+
+/* Section styling */
+section {
+    padding: 50px 0;
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Helvetica', sans-serif;
+}
+
+/* Styling for the timeline */
+.timeline-container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.timeline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.timeline-item {
+    width: 30%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 2px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.timeline-item .keyword {
+    font-weight: bold;
+}
+
+/* Card styling */
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5em;
+}
+
+.card-link {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.card-link:hover {
+    color: #0056b3;
+}
+
+aside {
+    background-color: lightgray;
+    padding: 20px;
+    word-break: break-word;
+}
+
+aside p a {
+    color: black;
+    text-decoration: none;
+}
+
+/* Footer styling */
+footer {
+    padding: 20px 0;
+}
+
+footer .navbar {
+    padding: 0;
+}
+
+footer .navbar-brand {
+    display: flex;
+    justify-content: center;
+}
+
+footer .navbar .fa {
+    margin: 0 15px;
+}
+
+/* Media Queries */
+
+/* Tablet View */
+@media (max-width: 768px) {
+    .timeline-item {
+        width: 45%;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    .d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav .navbar-nav {
+        text-align: center;
+    }
+
+    header nav .navbar-nav .nav-item {
+        margin-bottom: 10px;
+    }
+
+    .navbar-toggler-icon {
+        font-size: 1em;
+    }
+
+    .navbar-brand img {
+        width: 120px;
+        height: 120px;
+    }
+
+   
+}
+
+/* Mobile View */
+@media (max-width: 576px) {
+
+    .navbar-toggler-icon {
+        display: inline-block;
+        width: 1.5em;
+        height: 1.5em;
+        vertical-align: middle;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+    }
+
+    .timeline-item {
+        width: 100%;
+    }
+
+    .timeline {
+        flex-direction: column;
+    }
+
+    .navbar-nav {
+        margin-top: 15px;
+    }
+
+    footer .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .navbar-brand {
+        margin-bottom: 15px;
+    }
+
+    footer .navbar .fa {
+        margin: 10px 0;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline-item {
+        width: 100%;
+    }
+}
+
+.dropdown-toggle {
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.timeline-item:hover {
+    background-color: #e0e0e0;
+    color: black;
+    transform: scale(1.05);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+section #timeline {
+    background-image: url('Vacation/Bali.jpg');
+    background-size: auto;
+    background-position: center;
+    height: 100%; /* full height of the viewport */
+}
+

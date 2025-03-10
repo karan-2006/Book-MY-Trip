@@ -1,0 +1,183 @@
+ /* General Styles */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    width: 250px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card-img-top {
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+footer {
+    word-break: break-word;
+    padding: 20px 0;
+}
+
+footer .container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .social-icons a {
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+footer .footer-text p {
+    margin-bottom: 5px;
+}
+
+/* Responsive Styles */
+
+/* Tablets (Medium Screens) */
+@media (max-width: 1023px) {
+    
+    header nav .navbar-nav {
+        text-align: center;
+    }
+
+    header nav .navbar-nav .nav-item {
+        margin-bottom: 10px;
+    }
+
+    .navbar-toggler-icon {
+        font-size: 1em;
+    }
+
+    .navbar-brand img {
+        width: 120px;
+        height: 120px;
+    }
+
+    
+    .card {
+        width: calc(50% - 20px);
+    }
+
+    .card-container {
+        gap: 10px;
+    }
+
+    aside p a {
+        display: block;
+    }
+
+    footer .container-fluid {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    footer .social-icons {
+        margin-bottom: 15px;
+    }
+}
+
+/* Low-End Mobiles (Small Screens) */
+@media (max-width: 767px) {
+    .card {
+        width: 100%;
+        height: auto;
+    }
+
+    .card-img-top {
+        height: auto;
+    }
+
+    .card-container {
+        gap: 10px;
+    }
+
+    .navbar-brand img {
+        max-height: 100px;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+
+
+
+    footer .social-icons i {
+        font-size: 2.5em;
+    }
+
+    footer .footer-text p {
+        font-size: 0.9em;
+    }
+}
+
+/* Very Small Screens */
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+    }
+
+    .navbar-brand img {
+        max-height: 80px;
+    }
+
+    .dropdown-menu {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    #loginForm {
+        padding: 5px;
+    }
+
+    aside, footer {
+        padding: 10px;
+    }
+
+    footer .social-icons i {
+        font-size: 2em;
+    }
+
+    footer .footer-text p {
+        font-size: 0.8em;
+    }
+
+    #loginForm input {
+        width: 100%;
+    }
+}
+

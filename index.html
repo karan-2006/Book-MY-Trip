@@ -1,0 +1,735 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMyTrip</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome-free-6.7.2-web/fontawesome-free-6.7.2-web/css/all.min.css">
+    <style>
+
+        /* App Store Button */
+        .app-store-card {
+            width: 100%;
+            max-width: 200px;
+            margin-bottom: 10px; /* Added margin for mobile */
+        }
+
+        @media (min-width: 768px) {
+            .app-store-card {
+                margin-bottom: 0;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .app-store-card {
+                max-width: 250px; /* Increase width on larger screens */
+            }
+        }
+
+        /* Sponsor Images */
+        .sponsor-img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        .sponsor-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Grid Layout Adjustments */
+        .grid-item {
+            border: none !important; /* Reset all borders */
+        }
+
+        /* Small Screens (max-width: 767px) */
+        @media (max-width: 767px) {
+            .col:nth-child(5) .grid-item {
+                border-bottom: 1px solid #6c757d !important;
+            }
+        
+            .col:nth-child(-n+5) .grid-item {
+                border-top: 1px solid #6c757d !important;
+            }
+        }
+
+        /* Medium Screens (768px - 991px) */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .col:nth-child(2) .grid-item,
+            .col:nth-child(4) .grid-item {
+                border-left: 1px solid #6c757d !important;
+            }
+        
+            .col:nth-child(5) .grid-item {
+                border-right: 1px solid #6c757d !important;
+            }
+        }
+
+        /* Large Screens (min-width: 992px) */
+        @media (min-width: 992px) {
+            .col:nth-child(1) .grid-item,
+            .col:nth-child(5) .grid-item {
+                border-right: none !important;
+            }
+        
+            .col:nth-child(n+2) .grid-item {
+                border-left: 1px solid #6c757d !important;
+            }
+        }
+
+        /* Carousel Image Styling */
+        .carousel-item img {
+            width: 100%;
+            height: 500px; /* Default landscape height */
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-item img {
+                height: 600px; /* Portrait mode for smaller screens */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+    <div class="container-with-background">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+                <div class="container-fluid">
+                    <!-- Logo -->
+                    <a class="navbar-brand" href="index.html">
+                        <img src="Logo/BookMYTrip.png" alt="BookMYTrip Logo" width="150" height="150">
+                    </a>
+                
+                    <!-- Mobile Menu Toggle -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                
+                    <!-- Navbar Links -->
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active text-danger fw-bold" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark fw-bold" href="offers.html">Offers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark fw-bold" href="About.html">About</a>
+                            </li>
+                        </ul>
+                    
+                        <!-- Login Dropdown -->
+                        <div class="d-flex flex-column flex-lg-row align-items-center ms-lg-2">
+                            <li class="nav-item dropdown list-unstyled">
+                                <button class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Login / Create Account
+                                </button>
+                                <ul class="dropdown-menu p-4">
+                                    <form id="loginForm" method="POST">
+                                        <li>
+                                            <label class="text-dark" for="username">Username/E-mail:</label>
+                                            <input type="text" id="username" name="username" placeholder="Enter your email"
+                                                required class="form-control" autocomplete="username">
+                                        </li>
+                                        <li>
+                                            <label class="text-dark mt-2" for="password">Password:</label>
+                                            <input type="password" id="password" name="password" placeholder="Enter password"
+                                                required class="form-control">
+                                        </li>
+                                        <li>
+                                            <button type="submit" class="btn btn-outline-primary w-100 mt-3">Login</button>
+                                        </li>
+                                    </form>
+                                </ul>
+                            </li>
+                        
+                            <!-- Country & Language Dropdown -->
+                            <li class="nav-item dropdown list-unstyled ms-lg-2 mt-2 mt-lg-0">
+                                <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Country / Language
+                                </button>
+                                <ul class="dropdown-menu p-2">
+                                    <li>
+                                        <label class="text-dark" for="country">Select Country:</label>
+                                        <select class="form-select" id="country" name="country" autocomplete="country">
+                                            <option selected disabled>Choose a country</option>
+                                            <option value="US">United States</option>
+                                            <option value="CA">Canada</option>
+                                            <option value="BR">Brazil</option>
+                                            <option value="JP">Japan</option>
+                                            <option value="CN">China</option>
+                                            <option value="IN">India</option>
+                                            <option value="RU">Russia</option>
+                                            <option value="FR">France</option>
+                                            <option value="DE">Germany</option>
+                                        </select>
+                                    </li>
+                                    <li class="mt-2">
+                                        <label class="text-dark" for="language">Select Language:</label>
+                                        <select class="form-select" id="language">
+                                            <option selected disabled>Choose a language</option>
+                                            <option value="1">English</option>
+                                            <option value="2">Tamil</option>
+                                            <option value="3">Hindi</option>
+                                            <option value="4">French</option>
+                                            <option value="5">German</option>
+                                            <option value="6">Chinese</option>
+                                            <option value="7">Japanese</option>
+                                        </select>
+                                    </li>
+                                </ul>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <article>
+            <div class="container my-5 w-100 w-md-50 mx-auto">
+                <div class="form">
+                    <!-- Tab Navigation -->
+                    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="flights-tab" data-bs-toggle="tab" href="#flightForm" role="tab" aria-controls="flightForm">Flights</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="hotels-tab" data-bs-toggle="tab" href="#hotelForm" role="tab" aria-controls="hotelForm">Hotels</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="homestays-tab" data-bs-toggle="tab" href="#homestayForm" role="tab" aria-controls="homestayForm">Homestays</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="packages-tab" data-bs-toggle="tab" href="#packageForm" role="tab" aria-controls="packageForm">Holiday</a>
+                        </li>
+                    </ul>
+                
+                    <!-- Tab Content -->
+                    <div class="container-fluid">
+                        <div class="tab-content mt-4">
+                            <!-- Flight Search -->
+                            <div id="flightForm" class="tab-pane fade show active form-container" role="tabpanel">
+                                <h3>Flight Search</h3>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="departure">From:</label>
+                                        <input class="form-control" list="flightDatalistFrom" id="departure" name="departure" placeholder="Enter departure city" autocomplete="address-level2">
+                                        <datalist id="flightDatalistFrom">
+                                            <option value="San Francisco">
+                                            <option value="New York">
+                                            <option value="Seattle">
+                                            <option value="Los Angeles">
+                                            <option value="Chicago">
+                                            <option value="Miami">
+                                        </datalist>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="destination">To:</label>
+                                        <input class="form-control" list="flightDatalistTo" id="destination" name="destination" placeholder="Enter destination city" autocomplete="address-level2">
+                                        <datalist id="flightDatalistTo">
+                                            <option value="San Francisco">
+                                            <option value="New York">
+                                            <option value="Seattle">
+                                            <option value="Los Angeles">
+                                            <option value="Chicago">
+                                            <option value="Miami">
+                                        </datalist>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="departureDate">Departure Date:</label>
+                                        <input class="form-control" type="date" id="departureDate" name="departureDate">
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <!-- Hotel Booking -->
+                            <div id="hotelForm" class="tab-pane fade form-container" role="tabpanel">
+                                <h3>Hotel Booking</h3>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="hotelLocation">Destination:</label>
+                                        <input class="form-control" list="hotelDatalistLocation" id="hotelLocation" name="hotelLocation" placeholder="Enter destination" autocomplete="address-level2">
+                                        <datalist id="hotelDatalistLocation">
+                                            <option value="San Francisco">
+                                            <option value="New York">
+                                            <option value="Seattle">
+                                            <option value="Los Angeles">
+                                            <option value="Chicago">
+                                            <option value="Miami">
+                                        </datalist>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="hotelStartDate">Check-in:</label>
+                                        <input class="form-control" type="date" id="hotelStartDate" name="hotelStartDate">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="hotelEndDate">Check-out:</label>
+                                        <input class="form-control" type="date" id="hotelEndDate" name="hotelEndDate">
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <!-- Homestay Search -->
+                            <div id="homestayForm" class="tab-pane fade form-container" role="tabpanel">
+                                <h3>Homestay Search</h3>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="homestayLocation">Destination:</label>
+                                        <input class="form-control" list="homestayDatalistLocation" id="homestayLocation" name="homestayLocation" placeholder="Enter destination" autocomplete="address-level2">
+                                        <datalist id="homestayDatalistLocation">
+                                            <option value="San Francisco">
+                                            <option value="New York">
+                                            <option value="Seattle">
+                                            <option value="Los Angeles">
+                                            <option value="Chicago">
+                                            <option value="Miami">
+                                        </datalist>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="guests">Number of Guests:</label>
+                                        <input class="form-control" type="number" id="guests" name="guests" placeholder="Enter number of guests" min="1" max="20">
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <!-- Holiday Packages -->
+                            <div id="packageForm" class="tab-pane fade form-container" role="tabpanel">
+                                <h3>Holiday Packages</h3>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="packageDestination">Destination:</label>
+                                        <input class="form-control" list="packageDatalistDestination" id="packageDestination" name="packageDestination" placeholder="Enter destination" autocomplete="address-level2">
+                                        <datalist id="packageDatalistDestination">
+                                            <option value="San Francisco">
+                                            <option value="New York">
+                                            <option value="Seattle">
+                                            <option value="Los Angeles">
+                                            <option value="Chicago">
+                                            <option value="Miami">
+                                        </datalist>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="packageStartDate">Start Date:</label>
+                                        <input class="form-control" type="date" id="packageStartDate" name="packageStartDate">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="packageEndDate">End Date:</label>
+                                        <input class="form-control" type="date" id="packageEndDate" name="packageEndDate">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <!-- Search Button -->
+                        <div class="text-center my-3">
+                            <button class="btn btn-outline-primary" id="searchButton">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>        
+    
+    <section class="pt-4">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" 
+                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" 
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" 
+                    aria-label="Slide 3"></button>
+            </div>
+        
+            <!-- Carousel Inner -->
+            <div class="carousel-inner">
+                
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <img src="Carousel/Carousel1.jpeg" class="d-block w-100 img-fluid" alt="Hello">
+                    <div class="carousel-caption d-sm-block">
+                        <h4 class="h5 d-md-block d-sm-none">Explore the World with Us</h4>
+                        <h6 class="d-none d-sm-block d-md-none">Explore the World</h6>
+                        <p class="d-md-block d-sm-none">Journeys await you in every corner of the Earth.</p>
+                        <p class="d-none d-sm-block d-md-none">Unforgettable journeys await you.</p>
+                        <button type="button" class="btn btn-outline-primary my-3">Explore Now</button>
+                    </div>
+                </div>
+            
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <img src="Carousel/Carousel2.jpeg" class="d-block w-100 img-fluid" alt="Hi">
+                    <div class="carousel-caption d-sm-block">
+                        <h4 class="h5 d-md-block d-sm-none">Your Dream Vacation Awaits</h4>
+                        <h6 class="d-none d-sm-block d-md-none">Dream Vacation</h6>
+                        <p class="d-md-block d-sm-none">We craft personalized travel experiences.</p>
+                        <p class="d-none d-sm-block d-md-none">Personalized travel experiences await.</p>
+                        <button type="button" class="btn btn-outline-primary my-3">Explore Now</button>
+                    </div>
+                </div>
+            
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <img src="Carousel/Carousel3.jpeg" class="d-block w-100 img-fluid" alt="Welcome">
+                    <div class="carousel-caption d-sm-block">
+                        <h4 class="h5 d-md-block d-sm-none">Adventure is Calling</h4>
+                        <h6 class="d-none d-sm-block d-md-none">Adventure Awaits</h6>
+                        <p class="d-md-block d-sm-none">
+                            Step out of your comfort zone and embrace thrilling exploration.
+                        </p>
+                        <p class="d-none d-sm-block d-md-none">Embrace thrilling exploration.</p>
+                        <button type="button" class="btn btn-outline-primary my-3">Explore Now</button>
+                    </div>
+                </div>
+            
+            </div>
+        
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        
+        </div>
+    </section>
+    
+    
+    
+    <section class="pt-4" id="best-selling">
+        <h2>Best Selling Destinations</h2>
+        <div id="over" class="destination-container"></div>
+    </section>
+    
+    <section class="pt-4" id="offers">
+        <!-- Navigation Bar for Offers -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <h2>Offers</h2>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">All</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Flights</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Hotels</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Holidays</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Trains</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Cabs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Bus</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+        <!-- Offers Container -->
+        <div id="offers-container" class="row"></div>
+    </section>
+    
+    <section>
+        <div class="py-5">
+            <!-- Header & Rating Section -->
+            <div class="d-flex justify-content-between flex-column flex-md-row align-items-center text-center text-md-start">
+                <h2 class="col-12 col-md-4">Why Book With Us?</h2>
+                <div class="col-12 col-md-5 alert border-success d-inline-block m-3 shadow-sm d-md-block d-sm-block text-center text-md-start" role="alert">
+                    <h5>
+                        Great 
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        8,761 reviews on <i class="fa-solid fa-star"></i> Trustpilot
+                    </h5>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Features Grid -->
+        <div class="my-5">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-5 g-3">
+                
+                <!-- Grid Item 1 -->
+                <div class="col d-flex">
+                    <div class="grid-item text-center p-3 shadow-sm d-flex flex-column justify-content-center w-100 border border-secondary border-top-0 border-bottom-0">
+                        <i class="fa-solid fa-calendar-days fa-2x mb-2"></i>
+                        <h5>Easy Booking</h5>
+                        <p>We offer easy and convenient flight bookings with attractive offers.</p>
+                    </div>
+                </div>
+            
+                <!-- Grid Item 2 -->
+                <div class="col d-flex">
+                    <div class="grid-item text-center p-3 shadow-sm d-flex flex-column justify-content-center w-100 border border-secondary border-top-0 border-bottom-0">
+                        <i class="fa-solid fa-indian-rupee-sign fa-2x mb-2"></i>
+                        <h5>Lowest Price</h5>
+                        <p>We ensure low rates on hotel reservations, holiday packages, and flight tickets.</p>
+                    </div>
+                </div>
+            
+                <!-- Grid Item 3 -->
+                <div class="col d-flex">
+                    <div class="grid-item text-center p-3 shadow-sm d-flex flex-column justify-content-center w-100 border border-secondary border-top-0 border-bottom-0">
+                        <i class="fa-solid fa-arrows-rotate fa-2x mb-2"></i>
+                        <h5>Instant Refund</h5>
+                        <p>Get instant refunds effortlessly on your travel bookings with us.</p>
+                    </div>
+                </div>
+            
+                <!-- Grid Item 4 -->
+                <div class="col d-flex">
+                    <div class="grid-item text-center p-3 shadow-sm d-flex flex-column justify-content-center w-100 border border-secondary border-top-0 border-bottom-0">
+                        <i class="fa-solid fa-headset fa-2x mb-2"></i>
+                        <h5>24/7 Support</h5>
+                        <p>Get assistance 24/7 on any kind of travel-related query. We are happy to assist you.</p>
+                    </div>
+                </div>
+            
+                <!-- Grid Item 5 -->
+                <div class="col d-flex">
+                    <div class="grid-item text-center p-3 shadow-sm d-flex flex-column justify-content-center w-100 border border-secondary border-top-0 border-bottom-0">
+                        <i class="fa-solid fa-fire fa-2x mb-2"></i>
+                        <h5>Exciting Deals</h5>
+                        <p>Enjoy exciting deals on flights, hotels, buses, car rentals, and tour packages.</p>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </section>
+    
+<!-- Blog Section -->
+<section>
+    <div class="container-fluid py-5">
+        <h1 class="mb-5 text-center">Travel Blog</h1>
+    
+        <!-- Travel Tips & Advice -->
+        <div class="blog-section mb-5">
+            <h2 class="text-primary text-center">Travel Tips & Advice</h2>
+            <div id="tips-container" class="row gy-4">
+                <!-- Blog posts will dynamically load here -->
+            </div>
+        </div>
+    
+        <!-- Customer Stories -->
+        <div class="blog-section mb-5">
+            <h2 class="text-primary text-center">Customer Stories</h2>
+            <div id="customer-stories-container" class="row gy-4">
+                <!-- Blog posts will dynamically load here -->
+            </div>
+        </div>
+    
+        <!-- Industry News -->
+        <div class="blog-section">
+            <h2 class="text-primary text-center">Industry News</h2>
+            <div id="industry-news-container" class="row gy-4">
+                <!-- Blog posts will dynamically load here -->
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+    <section class="container-fluid pt-4">
+        <table class="table table-borderless">
+            <!-- Header Row -->
+            <tr>
+                <td colspan="3">
+                    <h4>
+                        <i class="fa-solid fa-ticket pe-2" style="color: #e30d2d;"></i>
+                        <b>Download App Now!</b>
+                    </h4>
+                    <p>
+                        Use code <b>WELCOMEMMT</b> and get <b>FLAT 12% OFF*</b> on your first domestic flight booking
+                    </p>
+                </td>
+            </tr>
+        
+            <!-- Main Content Row -->
+            <tr class="row d-flex flex-wrap flex-md-nowrap justify-content-between align-items-center">
+                <!-- Phone Input & Button -->
+                <td class="col-12 col-md-4 d-flex flex-column flex-md-row align-items-center justify-content-md-start">
+                    <div class="w-100 w-md-50 mb-3 mb-md-0">
+                        <input class="form-control" type="tel" name="phone" id="phone" 
+                            placeholder="012-345-6789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" autocomplete="tel">
+                    </div>
+                    <div class="w-100 w-md-50">
+                        <input class="btn btn-outline-primary w-100" type="submit" value="Get App Link">
+                    </div>
+                </td>
+            
+                <!-- Play Store Card -->
+                <td class="col-12 col-md-4 d-flex justify-content-center align-items-center">
+                    <a href="#" class="d-block w-100 text-center text-md-start">
+                        <div class="card mb-3 mx-auto">
+                            <div class="row g-0 align-items-center p-2">
+                                <div class="col-3 d-flex align-items-center justify-content-center">
+                                    <i class="fa-brands fa-google-play text-dark mt-3 ms-1 fa-2x"></i>
+                                </div>
+                                <div class="col-9">
+                                    <div class="card-body">
+                                        <h6 class="card-text text-dark mt-3">Play Store</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </td>
+            
+                <!-- App Store Card -->
+                <td class="col-12 col-md-4 d-flex justify-content-center align-items-center">
+                    <a href="#" class="d-block w-100 text-center text-md-start">
+                        <div class="card mb-3 mx-auto">
+                            <div class="row g-0 align-items-center p-2">
+                                <div class="col-3 d-flex align-items-center justify-content-center">
+                                    <i class="fa-brands fa-apple text-dark mt-3 ms-1 fa-2x"></i>
+                                </div>
+                                <div class="col-9">
+                                    <div class="card-body">
+                                        <h6 class="card-text text-dark mt-3">App Store</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </section>
+    
+    <section class="container py-4">
+        <h2 class="text-center mb-4">Our Sponsors</h2>
+        
+        <div id="sponsorCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+            <div class="carousel-inner text-center">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="d-flex flex-lg-row flex-md-row flex-column justify-content-center gap-3 sponsor-container">
+                        <img src="Sponsor/Air Pacific.png" alt="Air Pacific" class="sponsor-img img-fluid">
+                        <img src="Sponsor/California Speedway.png" alt="California Speedway" class="sponsor-img img-fluid">
+                        <img src="Sponsor/Cradle Mountain Lodge.png" alt="Cradle Mountain Lodge" class="sponsor-img img-fluid">
+                    </div>
+                </div>
+            
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="d-flex flex-lg-row flex-md-row flex-column justify-content-center gap-3 sponsor-container">
+                        <img src="Sponsor/HARVEY World Travel.png" alt="HARVEY World Travel" class="sponsor-img img-fluid">
+                        <img src="Sponsor/Magistic Cruises.png" alt="Magistic Cruises" class="sponsor-img img-fluid">
+                        <img src="Sponsor/National Car Rental Black.png" alt="National Car Rental" class="sponsor-img img-fluid">
+                    </div>
+                </div>
+            
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="d-flex flex-lg-row flex-md-row flex-column justify-content-center gap-3 sponsor-container">
+                        <img src="Sponsor/PriceTravel.png" alt="PriceTravel" class="sponsor-img img-fluid">
+                        <img src="Sponsor/TravelPilot.png" alt="TravelPilot" class="sponsor-img img-fluid">
+                        <img src="Sponsor/Tripadvisor Nederland.png" alt="Tripadvisor Nederland" class="sponsor-img img-fluid">
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#sponsorCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#sponsorCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+       
+    <aside class="pt-4">
+        <h6 class="fw-bold">BOOKMYTRIP</h6>
+        <p class="text-muted small">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem laudantium ab voluptatem, laborum distinctio iste reiciendis minima, nisi modi eaque mollitia? Quae ut numquam nesciunt, labore fuga eius iste esse!
+        </p>
+    
+        <h6 class="fw-bold mt-3">About the Site</h6>
+        <p class="small">
+            <a href="#">Customer Support</a>, 
+            <a href="#">MMT Black Loyalty Program</a>, 
+            <a href="#">Payment Security</a>, 
+            <a href="#">Privacy Policy</a>, 
+            <a href="#">Cookie Policy</a>, 
+            <a href="#">User Agreement</a>, 
+            <a href="#">Terms of Service</a>, 
+            <a href="#">Franchise Offices</a>, 
+            <a href="#">Make A Payment</a>, 
+            <a href="#">Work From Home</a>, 
+            <a href="#">Escalation Channel</a>
+        </p>
+    
+        <h6 class="fw-bold mt-3">QUICK LINKS</h6>
+        <p class="small">
+            <a href="#">Flights Discount Coupons</a>, 
+            <a href="#">Domestic Airlines</a>, 
+            <a href="#">Airlines</a>, 
+            <a href="#">Air Asia</a>, 
+            <a href="#">SpiceJet</a>, 
+            <a href="#">GoAir</a>, 
+            <a href="#">Air India</a>, 
+            <a href="#">Air India Express</a>, 
+            <a href="#">Vistara</a>, 
+            <a href="#">Delhi Mumbai Flights</a>, 
+            <a href="#">Pune Delhi Flights</a>, 
+            <a href="#">Chennai Flights</a>, 
+            <a href="#">Delhi Guwahati Flights</a>, 
+            <a href="#">Mumbai Varanasi Flights</a>, 
+            <a href="#">Guwahati Delhi Flights</a>, 
+            <a href="#">Goa Delhi Flights</a>, 
+            <a href="#">Delhi Goa Flights</a>, 
+            <a href="#">Delhi Chennai Flights</a>
+        </p>
+    </aside>
+    
+    <footer class="bg-dark py-3">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid d-flex flex-column flex-md-row justify-content-between align-items-center text-center text-md-start">
+                
+                <!-- Social Media Icons -->
+                <div class="navbar-brand mb-3 mb-md-0">
+                    <a href="#" class="text-white me-3"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fa-brands fa-x-twitter fa-2x"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fa-brands fa-linkedin-in fa-2x"></i></a>
+                    <a href="#" class="text-white"><i class="fa-brands fa-facebook-f fa-2x"></i></a>
+                </div>
+            
+                <!-- Footer Text -->
+                <div class="text-white text-center">
+                    <p class="mb-1">&copy; 2024 BOOKMYTRIP PVT. LTD</p>
+                    <p class="mb-0">Countries: INDIA | USA | UAE</p>
+                </div>
+            
+            </div>
+        </nav>
+    </footer>
+
+<script src="js/bootstrap.bundle.min.js" defer></script>
+<script src="fontawesome-free-6.7.2-web/js/all.min.js" defer></script>
+<script src="script.js" defer></script>
+</body>
+</html>
