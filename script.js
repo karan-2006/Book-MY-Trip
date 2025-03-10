@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
             { img: 'Holiday/Holiday1.jpg', Title: 'Bookings Open for Summer 2025 Holiday Packages.', src: 'Plan your international vacation in advance.', category: ['Holidays'] },
             { img: 'Plane/Flight2.jpg', Title: 'Super Seat Sale by Air Arabia', src: 'With light fares starting @ $5,914*', category: ['Flights'] },
             { img: 'Train/Train1.jpg', Title: 'Presenting TRIP GUARANTEE on Trains', src: 'Waitlisted tickets no more.', category: ['Trains'] },
-            { img: 'Bus/bus1.jpg', Title: 'Book Buses', src: '@ up to 15% OFF*', category: ['Bus'] },
+            { img: 'Bus/bus1.jpeg', Title: 'Book Buses', src: '@ up to 15% OFF*', category: ['Bus'] },
             { img: 'Plane/Flight3.jpg', Title: 'Meals for Your Flights @ up to 20% Lower Prices!', src: 'Now book your meal in advance & save BIG bucks on your journey.', category: ['Flights'] },
             { img: 'Hotel/Hotel1.jpg', Title: 'For your royal getaways in Rajasthan:', src: 'Book Stays for 2 Nights & Pay for JUST 1.', category: ['Hotels'] },
             { img: 'Holiday/Holiday2.jpg', Title: 'Get, Set, Sail with Our Cruise Holiday Packages!', src: 'Plan your holiday.', category: ['Holidays'] },
